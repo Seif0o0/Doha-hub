@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="code_grow.dohahub.app.model.Article" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/articles_main_background">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:src="@drawable/ic_back_navigator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/article_details_header"
+            android:textColor="@color/articles_header_color"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintBottom_toBottomOf="@id/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/back_button" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_button">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="start"
+                    android:maxLines="2"
+                    android:text="@{article.title}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/articles_title_color"
+                    android:textSize="@dimen/_17ssp"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Article title" />
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/profile_picture"
+                    android:layout_width="@dimen/_31sdp"
+                    android:layout_height="@dimen/_31sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    app:riv_corner_radius="@dimen/_500sdp"
+                    app:rounded_image_url="@{article.userPicture}"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="@{article.username}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/articles_header_color"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_picture"
+                    app:layout_constraintEnd_toStartOf="@id/comments_button"
+                    app:layout_constraintStart_toEndOf="@id/profile_picture"
+                    app:layout_constraintTop_toTopOf="@id/profile_picture"
+                    tools:text="username" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/comments_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_27sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/users_comments"
+                    android:textAllCaps="false"
+                    android:textColor="@color/market_main_background"
+                    android:textSize="@dimen/_9ssp"
+                    android:theme="@style/Theme.MaterialComponents"
+                    app:backgroundTint="@color/market_clicked_items_background"
+                    app:cornerRadius="@dimen/_8sdp"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_picture"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/username"
+                    app:layout_constraintTop_toTopOf="@id/profile_picture"
+                    app:layout_constraintVertical_bias="1" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/photo"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:src="@drawable/ic_launcher_background"
+                    app:constraintSet="@id/start_guideline"
+                    app:layout_constraintDimensionRatio="1.5:1"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/profile_picture"
+                    app:riv_corner_radius="@dimen/_11sdp"
+                    app:rounded_image_url="@{article.photo}" />
+
+                <TextView
+                    android:id="@+id/body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="start"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/articles_body_text_color"
+                    android:textSize="@dimen/_9ssp"
+                    app:article_body="@{article.body}"
+                    app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/photo"
+                    app:layout_constraintVertical_bias="0"
+                    app:web_view="@{article.isWebView}"
+                    tools:text="hello from the body of the article and body body body body" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/_15sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_15sdp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

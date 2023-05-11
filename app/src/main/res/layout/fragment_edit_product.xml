@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="code_grow.dohahub.app.view_model.EditProductViewModel" />
+
+        <variable
+            name="error"
+            type="String" />
+
+        <variable
+            name="cancelAnimation"
+            type="Boolean" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/market_main_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/ic_back_navigator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/edit_product_header"
+                android:textColor="@color/home_header_text_color"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintBottom_toBottomOf="@id/back_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/back_button" />
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintBottom_toTopOf="@id/delete_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/back_button">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/upload_photo_container"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_154sdp"
+                        android:background="@drawable/upload_photo_background"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/upload_photo_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_upload_image"
+                        app:layout_constraintBottom_toTopOf="@id/upload_photo_title"
+                        app:layout_constraintEnd_toEndOf="@id/upload_photo_title"
+                        app:layout_constraintStart_toStartOf="@id/upload_photo_title"
+                        app:layout_constraintTop_toTopOf="@id/upload_photo_container"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/upload_photo_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/upload_photo"
+                        android:textColor="@color/market_clicked_items_background"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/upload_photo_container"
+                        app:layout_constraintEnd_toStartOf="@id/photo"
+                        app:layout_constraintStart_toStartOf="@id/upload_photo_container"
+                        app:layout_constraintTop_toBottomOf="@id/upload_photo_icon" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/photo_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="photo,remove_photo"
+                        app:upload_image_state="@{viewModel.uploadImageResponse}" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/photo"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="@id/upload_photo_container"
+                        app:layout_constraintEnd_toEndOf="@id/upload_photo_container"
+                        app:layout_constraintTop_toTopOf="@id/upload_photo_container"
+                        app:riv_corner_radius="@dimen/_11ssp" />
+
+                    <ImageView
+                        android:id="@+id/remove_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:src="@drawable/ic_remove"
+                        app:layout_constraintEnd_toEndOf="@id/photo"
+                        app:layout_constraintTop_toTopOf="@id/photo" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/product_title_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/upload_photo_container">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/product_title_edittext"
+                            android:layout_width="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/product_title_hint"
+                            android:inputType="text"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.productTitleLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/market_header_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.productTitleErrorLiveData}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/item_price_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/product_title_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/item_price_edittext"
+                            android:layout_width="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/item_price_hint"
+                            android:inputType="numberDecimal"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.priceLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/market_header_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.priceErrorLiveData}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/category_exposed_dropdown_menu"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:endIconDrawable="@drawable/selector_drop_down"
+                        app:endIconTint="@color/drop_down_arrow_color"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                        app:layout_constraintStart_toStartOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/item_price_layout">
+
+                        <!--
+                         app:drop_down_list="@{@stringArray/gender}" -->
+                        <AutoCompleteTextView
+                            android:id="@+id/autocomplete_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/category_hint"
+                            android:inputType="none"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.categoryLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/market_header_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11ssp"
+                            app:error_message="@{viewModel.categoryErrorLiveData}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/city_exposed_dropdown_menu"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:endIconDrawable="@drawable/selector_drop_down"
+                        app:endIconTint="@color/drop_down_arrow_color"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                        app:layout_constraintStart_toStartOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/category_exposed_dropdown_menu">
+
+                        <!--
+                         app:drop_down_list="@{@stringArray/gender}"
+                             -->
+                        <AutoCompleteTextView
+                            android:id="@+id/autocomplete_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/city_hint"
+                            android:inputType="none"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.cityLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/market_header_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11ssp"
+                            app:error_message="@{viewModel.cityErrorLiveData}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/phone_number_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/city_exposed_dropdown_menu">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/phone_number_edittext"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/phone_number_hint"
+                            android:inputType="phone"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.phoneLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/market_header_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/whats_app_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/phone_number_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/whats_app_edittext"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/whats_app_hint"
+                            android:inputType="phone"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.whatsAppLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/market_header_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <!--
+                    android:text="@={viewModel.phoneNumberLiveData}"
+                    app:error_message="@{viewModel.phoneNumberErrorLiveData}"-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/address_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/whats_app_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/address_edittext"
+                            android:layout_width="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/address_hint"
+                            android:inputType="text"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.addressLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/market_header_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/product_details_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/address_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/product_details_edittext"
+                            android:layout_width="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/product_details_hint"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.detailsLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/market_header_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.detailsErrorLiveData}"
+                            tools:text="a;lal;sfk ;alk lakjgla;ksjgvlaskjfavwklvjsalkgj ladskfj alkjvlakvgdjlaskj lakAfjvaskljvlkasjh kalgjlkvadjsgklhjg kvalfjclakjf laskhj skldh" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/start_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/end_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_15sdp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/update_product"
+                android:textAllCaps="false"
+                android:textColor="@color/market_clicked_category_text_color"
+                android:textSize="@dimen/_11ssp"
+                android:theme="@style/Theme.MaterialComponents"
+                app:backgroundTint="@color/market_clicked_items_background"
+                app:cornerRadius="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/center_guideline"
+                app:layout_constraintTop_toBottomOf="@id/scroll_view" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/center_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delete_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/delete_product"
+                android:textAllCaps="false"
+                android:textColor="@color/market_clicked_category_text_color"
+                android:textSize="@dimen/_11ssp"
+                android:theme="@style/Theme.MaterialComponents"
+                app:backgroundTint="@color/market_delete_button_background"
+                app:cornerRadius="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/center_guideline"
+                app:layout_constraintTop_toBottomOf="@id/scroll_view" />
+
+            <include
+                android:id="@+id/categories_error_view"
+                layout="@layout/error_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:visibility="gone"
+                app:resource="@{viewModel.categoriesResponse}" />
+
+            <include
+                android:id="@+id/cities_error_view"
+                layout="@layout/error_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:visibility="gone"
+                app:resource="@{viewModel.citiesResponse}" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/loading_layout_background_color"
+                android:clickable="true"
+                android:focusable="true"
+                android:translationZ="2dp"
+                android:visibility="gone"
+                app:first_progress_state="@{viewModel.categoriesResponse}"
+                app:second_progress_state="@{viewModel.citiesResponse}"
+                app:third_progress_state="@{viewModel.editProductResponse}">
+
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/loader"
+                    style="@style/SpinKitView.Circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:SpinKit_Color="@color/loader_color" />
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+</layout>

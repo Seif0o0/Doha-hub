@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="code_grow.dohahub.app.view_model.EditArticleViewModel" />
+
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/articles_main_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/ic_back_navigator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/edit_article_header"
+                android:textColor="@color/articles_header_color"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintBottom_toBottomOf="@id/back_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/back_button" />
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintBottom_toTopOf="@id/delete_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/back_button">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/upload_photo_container"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_154sdp"
+                        android:background="@drawable/upload_photo_background"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/upload_photo_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_upload_image"
+                        app:layout_constraintBottom_toTopOf="@id/upload_photo_title"
+                        app:layout_constraintEnd_toEndOf="@id/upload_photo_title"
+                        app:layout_constraintStart_toStartOf="@id/upload_photo_title"
+                        app:layout_constraintTop_toTopOf="@id/upload_photo_container"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/upload_photo_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/upload_photo"
+                        android:textColor="@color/articles_clicked_items_background"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/upload_photo_container"
+                        app:layout_constraintEnd_toStartOf="@id/photo"
+                        app:layout_constraintStart_toStartOf="@id/upload_photo_container"
+                        app:layout_constraintTop_toBottomOf="@id/upload_photo_icon" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/photo_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="photo,remove_photo"
+                        app:upload_image_state="@{viewModel.uploadImageResponse}" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/photo"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="@id/upload_photo_container"
+                        app:layout_constraintEnd_toEndOf="@id/upload_photo_container"
+                        app:layout_constraintTop_toTopOf="@id/upload_photo_container"
+                        app:riv_corner_radius="@dimen/_11ssp" />
+
+                    <ImageView
+                        android:id="@+id/remove_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:src="@drawable/ic_remove"
+                        app:layout_constraintEnd_toEndOf="@id/photo"
+                        app:layout_constraintTop_toTopOf="@id/photo" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/name_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/upload_photo_container">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/name_edittext"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/article_name_hint"
+                            android:inputType="text"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.nameLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/articles_header_color"
+                            android:textColorHint="@color/articles_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.nameErrorLiveData}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/details_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        android:minHeight="@dimen/_90sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/name_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/details_edittext"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/product_details_hint"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.detailsLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/articles_header_color"
+                            android:textColorHint="@color/articles_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.detailsErrorLiveData}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/start_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/end_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_15sdp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="@dimen/_192sdp"
+                android:text="@string/update_article"
+                android:textAllCaps="false"
+                android:textColor="@color/articles_main_background"
+                android:textSize="@dimen/_11ssp"
+                android:theme="@style/Theme.MaterialComponents"
+                app:backgroundTint="@color/articles_clicked_items_background"
+                app:cornerRadius="@dimen/_11sdp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/center_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scroll_view" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/center_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="@dimen/_192sdp"
+                android:text="@string/delete_article"
+                android:textAllCaps="false"
+                android:textColor="@color/articles_main_background"
+                android:textSize="@dimen/_11ssp"
+                android:theme="@style/Theme.MaterialComponents"
+                app:backgroundTint="@color/articles_delete_button_background"
+                app:cornerRadius="@dimen/_11sdp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/center_guideline"
+                app:layout_constraintTop_toBottomOf="@id/scroll_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/loading_view"
+            layout="@layout/transparent_loading_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:visibility="gone"
+            app:resource="@{viewModel.progressStatus}" />
+    </FrameLayout>
+
+</layout>

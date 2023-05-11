@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userName"
+            type="String" />
+
+        <variable
+            name="userEmail"
+            type="String" />
+
+        <variable
+            name="profilePic"
+            type="String" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/side_menu_main_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/profile_picture"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="@dimen/_500sdp"
+                app:rounded_image_url="@{profilePic}"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@{userName}"
+                android:textColor="@color/side_menu_username_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toTopOf="@id/email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/profile_picture"
+                app:layout_constraintTop_toTopOf="@id/profile_picture"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="username" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@{userEmail}"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintBottom_toBottomOf="@id/profile_picture"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/username"
+                app:layout_constraintTop_toBottomOf="@id/username"
+                tools:text="email@email.com" />
+
+            <View
+                android:id="@+id/first_horizontal_line"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/side_menu_line_color"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/profile_picture" />
+
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/logged_in_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="my_profile,my_profile_icon,
+articles_background,articles_line,first_articles_circular_view,second_articles_circular_view,all_articles_background,all_articles,my_articles,
+hub_market_background,all_items_background,all_items,my_items,first_hub_market_circular_view,second_hub_market_circular_view,hub_market_line,
+campaigns,campaigns_background,campaigns_icon,campaigns_line,first_campaigns_circular_view,second_campaigns_circular_view,client_campaigns_background,client_campaigns,my_campaigns" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/provider_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="my_services_icon,my_services,orders_provider_icon,orders_provider,orders_provider_background,my_orders_provider,client_orders,client_orders_background,provider_orders_line,first_provider_orders_circular_view,second_provider_orders_circular_view" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/user_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="my_orders_user,my_orders_user_icon,my_orders_user_background" />
+
+            <ImageView
+                android:id="@+id/home_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/ic_home"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/first_horizontal_line" />
+
+            <TextView
+                android:id="@+id/home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/home"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/home_icon"
+                app:layout_constraintStart_toEndOf="@id/home_icon"
+                app:layout_constraintTop_toTopOf="@id/home_icon" />
+
+            <ImageView
+                android:id="@+id/my_profile_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/home_icon" />
+
+            <TextView
+                android:id="@+id/my_profile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/my_profile"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/my_profile_icon"
+                app:layout_constraintStart_toEndOf="@id/my_profile_icon"
+                app:layout_constraintTop_toTopOf="@id/my_profile_icon" />
+
+            <View
+                android:id="@+id/my_orders_user_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/my_orders_user_icon"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toTopOf="@id/my_orders_user_icon" />
+
+            <ImageView
+                android:id="@+id/my_orders_user_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_my_orders"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/my_profile_icon" />
+
+            <TextView
+                android:id="@+id/my_orders_user"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/my_orders"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/my_orders_user_icon"
+                app:layout_constraintStart_toEndOf="@id/my_orders_user_icon"
+                app:layout_constraintTop_toTopOf="@id/my_orders_user_icon" />
+
+            <ImageView
+                android:id="@+id/my_services_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_my_services"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/my_orders_user_icon" />
+
+            <TextView
+                android:id="@+id/my_services"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/my_services"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/my_services_icon"
+                app:layout_constraintStart_toEndOf="@id/my_services_icon"
+                app:layout_constraintTop_toTopOf="@id/my_services_icon" />
+
+            <View
+                android:id="@+id/orders_provider_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/orders_provider_icon"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toTopOf="@id/orders_provider_icon" />
+
+            <ImageView
+                android:id="@+id/orders_provider_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_my_orders"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/my_services_icon" />
+
+            <TextView
+                android:id="@+id/orders_provider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/orders"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/orders_provider_icon"
+                app:layout_constraintStart_toEndOf="@id/orders_provider_icon"
+                app:layout_constraintTop_toTopOf="@id/orders_provider_icon" />
+
+            <TextView
+                android:id="@+id/my_orders_provider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@string/my_orders"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/orders_provider_icon"
+                app:layout_constraintTop_toBottomOf="@id/orders_provider_icon" />
+
+            <View
+                android:id="@+id/client_orders_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/client_orders"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toEndOf="@id/orders_provider_icon"
+                app:layout_constraintTop_toTopOf="@id/client_orders" />
+
+            <TextView
+                android:id="@+id/client_orders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@string/client_orders"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/orders_provider_icon"
+                app:layout_constraintTop_toBottomOf="@id/my_orders_provider" />
+
+            <View
+                android:id="@+id/provider_orders_line"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/side_menu_line_color"
+                app:layout_constraintBottom_toBottomOf="@id/second_provider_orders_circular_view"
+                app:layout_constraintEnd_toEndOf="@id/orders_provider_icon"
+                app:layout_constraintStart_toStartOf="@id/orders_provider_icon"
+                app:layout_constraintTop_toBottomOf="@id/orders_provider_icon" />
+
+            <View
+                android:id="@+id/first_provider_orders_circular_view"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/my_orders_provider"
+                app:layout_constraintEnd_toEndOf="@id/orders_provider_icon"
+                app:layout_constraintStart_toStartOf="@id/orders_provider_icon"
+                app:layout_constraintTop_toTopOf="@id/my_orders_provider" />
+
+            <View
+                android:id="@+id/second_provider_orders_circular_view"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/client_orders"
+                app:layout_constraintEnd_toEndOf="@id/orders_provider_icon"
+                app:layout_constraintStart_toStartOf="@id/orders_provider_icon"
+                app:layout_constraintTop_toTopOf="@id/client_orders" />
+
+
+            <!-- start -->
+            <View
+                android:id="@+id/articles_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/articles_icon"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toTopOf="@id/articles_icon" />
+
+            <ImageView
+                android:id="@+id/articles_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_articles"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/client_orders" />
+
+            <TextView
+                android:id="@+id/articles"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/articles"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/articles_icon"
+                app:layout_constraintStart_toEndOf="@id/articles_icon"
+                app:layout_constraintTop_toTopOf="@id/articles_icon" />
+
+            <!--            -->
+            <TextView
+                android:id="@+id/my_articles"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@string/my_articles"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/articles_icon"
+                app:layout_constraintTop_toBottomOf="@id/articles_icon" />
+
+            <View
+                android:id="@+id/all_articles_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/all_articles"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toEndOf="@id/articles_icon"
+                app:layout_constraintTop_toTopOf="@id/all_articles" />
+
+            <TextView
+                android:id="@+id/all_articles"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@string/all_articles"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/articles_icon"
+                app:layout_constraintTop_toBottomOf="@id/my_articles" />
+
+            <View
+                android:id="@+id/articles_line"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/side_menu_line_color"
+                app:layout_constraintBottom_toBottomOf="@id/second_articles_circular_view"
+                app:layout_constraintEnd_toEndOf="@id/articles_icon"
+                app:layout_constraintStart_toStartOf="@id/articles_icon"
+                app:layout_constraintTop_toBottomOf="@id/articles_icon" />
+
+            <View
+                android:id="@+id/first_articles_circular_view"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/my_articles"
+                app:layout_constraintEnd_toEndOf="@id/articles_icon"
+                app:layout_constraintStart_toStartOf="@id/articles_icon"
+                app:layout_constraintTop_toTopOf="@id/my_articles" />
+
+            <View
+                android:id="@+id/second_articles_circular_view"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/all_articles"
+                app:layout_constraintEnd_toEndOf="@id/articles_icon"
+                app:layout_constraintStart_toStartOf="@id/articles_icon"
+                app:layout_constraintTop_toTopOf="@id/all_articles" />
+
+
+            <View
+                android:id="@+id/hub_market_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/hub_market"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toTopOf="@id/hub_market" />
+
+
+            <ImageView
+                android:id="@+id/hub_market_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_hub_market"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/all_articles" />
+
+            <TextView
+                android:id="@+id/hub_market"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/hub_market"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/hub_market_icon"
+                app:layout_constraintStart_toEndOf="@id/hub_market_icon"
+                app:layout_constraintTop_toTopOf="@id/hub_market_icon" />
+
+            <TextView
+                android:id="@+id/my_items"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@string/my_items"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/hub_market_icon"
+                app:layout_constraintTop_toBottomOf="@id/hub_market_icon" />
+
+            <View
+                android:id="@+id/all_items_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/all_items"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toEndOf="@id/hub_market_icon"
+                app:layout_constraintTop_toTopOf="@id/all_items" />
+
+            <TextView
+                android:id="@+id/all_items"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@string/all_hub_market"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/hub_market_icon"
+                app:layout_constraintTop_toBottomOf="@id/my_items" />
+
+            <View
+                android:id="@+id/hub_market_line"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/side_menu_line_color"
+                app:layout_constraintBottom_toBottomOf="@id/second_hub_market_circular_view"
+                app:layout_constraintEnd_toEndOf="@id/hub_market_icon"
+                app:layout_constraintStart_toStartOf="@id/hub_market_icon"
+                app:layout_constraintTop_toBottomOf="@id/hub_market_icon" />
+
+            <View
+                android:id="@+id/first_hub_market_circular_view"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/my_items"
+                app:layout_constraintEnd_toEndOf="@id/hub_market_icon"
+                app:layout_constraintStart_toStartOf="@id/hub_market_icon"
+                app:layout_constraintTop_toTopOf="@id/my_items" />
+
+            <View
+                android:id="@+id/second_hub_market_circular_view"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/all_items"
+                app:layout_constraintEnd_toEndOf="@id/hub_market_icon"
+                app:layout_constraintStart_toStartOf="@id/hub_market_icon"
+                app:layout_constraintTop_toTopOf="@id/all_items" />
+
+
+            <View
+                android:id="@+id/campaigns_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/campaigns_icon"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toTopOf="@id/campaigns_icon" />
+
+            <ImageView
+                android:id="@+id/campaigns_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_my_orders"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/all_items" />
+
+            <TextView
+                android:id="@+id/campaigns"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/campaigns"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/campaigns_icon"
+                app:layout_constraintStart_toEndOf="@id/campaigns_icon"
+                app:layout_constraintTop_toTopOf="@id/campaigns_icon" />
+
+
+            <TextView
+                android:id="@+id/my_campaigns"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@string/my_campaigns"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/campaigns_icon"
+                app:layout_constraintTop_toBottomOf="@id/campaigns_icon" />
+
+            <View
+                android:id="@+id/client_campaigns_background"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/client_campaigns"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toEndOf="@id/campaigns_icon"
+                app:layout_constraintTop_toTopOf="@id/client_campaigns" />
+
+            <TextView
+                android:id="@+id/client_campaigns"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:text="@string/client_campaigns"
+                android:textColor="@color/side_menu_subtitle_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toEndOf="@id/campaigns_icon"
+                app:layout_constraintTop_toBottomOf="@id/my_campaigns" />
+
+            <View
+                android:id="@+id/campaigns_line"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/side_menu_line_color"
+                app:layout_constraintBottom_toBottomOf="@id/second_campaigns_circular_view"
+                app:layout_constraintEnd_toEndOf="@id/campaigns_icon"
+                app:layout_constraintStart_toStartOf="@id/campaigns_icon"
+                app:layout_constraintTop_toBottomOf="@id/campaigns_icon" />
+
+            <View
+                android:id="@+id/first_campaigns_circular_view"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/my_campaigns"
+                app:layout_constraintEnd_toEndOf="@id/campaigns_icon"
+                app:layout_constraintStart_toStartOf="@id/campaigns_icon"
+                app:layout_constraintTop_toTopOf="@id/my_campaigns" />
+
+            <View
+                android:id="@+id/second_campaigns_circular_view"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/side_menu_items_background"
+                app:layout_constraintBottom_toBottomOf="@id/client_campaigns"
+                app:layout_constraintEnd_toEndOf="@id/campaigns_icon"
+                app:layout_constraintStart_toStartOf="@id/campaigns_icon"
+                app:layout_constraintTop_toTopOf="@id/client_campaigns" />
+
+            <ImageView
+                android:id="@+id/work_shops_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_workshops"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/client_campaigns" />
+
+            <TextView
+                android:id="@+id/work_shops"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/work_shops"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/work_shops_icon"
+                app:layout_constraintStart_toEndOf="@id/work_shops_icon"
+                app:layout_constraintTop_toTopOf="@id/work_shops_icon" />
+
+            <View
+                android:id="@+id/second_horizontal_line"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/side_menu_line_color"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/work_shops_icon" />
+
+            <ImageView
+                android:id="@+id/how_it_works_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/ic_how_it_works"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/second_horizontal_line" />
+
+            <TextView
+                android:id="@+id/how_it_works"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/side_menu_how_it_works"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/how_it_works_icon"
+                app:layout_constraintStart_toEndOf="@id/how_it_works_icon"
+                app:layout_constraintTop_toTopOf="@id/how_it_works_icon" />
+
+            <ImageView
+                android:id="@+id/about_us_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_about_us"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/how_it_works_icon" />
+
+            <TextView
+                android:id="@+id/about_us"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/about_us"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/about_us_icon"
+                app:layout_constraintStart_toEndOf="@id/about_us_icon"
+                app:layout_constraintTop_toTopOf="@id/about_us_icon" />
+
+            <ImageView
+                android:id="@+id/terms_conditions_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_terms_conditions"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/about_us_icon" />
+
+            <TextView
+                android:id="@+id/terms_conditions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/terms_conditions"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/terms_conditions_icon"
+                app:layout_constraintStart_toEndOf="@id/terms_conditions_icon"
+                app:layout_constraintTop_toTopOf="@id/terms_conditions_icon" />
+
+            <ImageView
+                android:id="@+id/privacy_policy_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_terms_conditions"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/terms_conditions_icon" />
+
+            <TextView
+                android:id="@+id/privacy_policy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/privacy_policy_icon"
+                app:layout_constraintStart_toEndOf="@id/privacy_policy_icon"
+                app:layout_constraintTop_toTopOf="@id/privacy_policy_icon" />
+
+            <ImageView
+                android:id="@+id/contact_us_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_31sdp"
+                android:src="@drawable/ic_contact_us"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/privacy_policy_icon" />
+
+            <TextView
+                android:id="@+id/contact_us"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/contact_us"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/contact_us_icon"
+                app:layout_constraintStart_toEndOf="@id/contact_us_icon"
+                app:layout_constraintTop_toTopOf="@id/contact_us_icon" />
+
+            <View
+                android:id="@+id/third_horizontal_line"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/side_menu_line_color"
+                app:layout_constraintEnd_toEndOf="@id/username"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/contact_us_icon" />
+
+            <ImageView
+                android:id="@+id/logout_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:src="@drawable/ic_logout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@id/third_horizontal_line"
+                app:layout_constraintVertical_bias="0" />
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_15sdp"
+                android:text="@string/logout"
+                android:textColor="@color/side_menu_title_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/logout_icon"
+                app:layout_constraintStart_toEndOf="@id/logout_icon"
+                app:layout_constraintTop_toTopOf="@id/logout_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

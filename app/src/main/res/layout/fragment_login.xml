@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="code_grow.dohahub.app.view_model.LoginViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/auth_main_background">
+
+                <ImageView
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_auth_header"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/top_guideline" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/login_title"
+                    android:textColor="@color/auth_title_text_color"
+                    android:textSize="@dimen/_17ssp"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/header" />
+
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/login_subtitle"
+                    android:textColor="@color/auth_subtitle_text_color"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_number_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30ssp"
+                    android:background="@drawable/edittext_background"
+                    app:boxBackgroundMode="none"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/subtitle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_number_edittext"
+                        android:layout_width="match_parent"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="start"
+                        android:hint="@string/phone_number_email_hint"
+                        android:inputType="number"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@={viewModel.phoneNumberLiveData}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/auth_main_text_color"
+                        android:textColorHint="@color/auth_hint_text_color"
+                        android:textSize="@dimen/_11sdp"
+                        app:error_message="@{viewModel.phoneNumberErrorLiveData}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/edittext_background"
+                    app:boxBackgroundMode="none"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/phone_number_layout"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/auth_hint_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password_edittext"
+                        android:layout_width="match_parent"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="start"
+                        android:hint="@string/password_hint"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@={viewModel.passwordLiveData}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/auth_main_text_color"
+                        android:textColorHint="@color/auth_hint_text_color"
+                        android:textSize="@dimen/_11sdp"
+                        app:error_message="@{viewModel.passwordErrorLiveData}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/forget_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/forget_password"
+                    android:textColor="@color/auth_hint_text_color"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/password_layout" />
+
+                <!--                android:textColor="@color/auth_main_background"
+                                    app:backgroundTint="@color/auth_yellow_color"-->
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/login_button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/auth_main_background"
+                    android:textSize="@dimen/_11ssp"
+                    android:theme="@style/Theme.MaterialComponents"
+                    app:backgroundTint="@color/auth_yellow_color"
+                    app:cornerRadius="@dimen/_11sdp"
+                    app:layout_constraintEnd_toEndOf="@id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/forget_password" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/google_sign_in_button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/sign_in_with_google"
+                    android:textAllCaps="false"
+                    android:textColor="@color/auth_main_background"
+                    android:textSize="@dimen/_11ssp"
+                    android:theme="@style/Theme.MaterialComponents"
+                    app:backgroundTint="@color/auth_main_text_color"
+                    app:cornerRadius="@dimen/_11sdp"
+                    app:icon="@drawable/ic_google_icon"
+                    app:iconGravity="textStart"
+                    app:iconTint="@android:color/transparent"
+                    app:iconTintMode="add"
+                    app:layout_constraintEnd_toEndOf="@id/login_button"
+                    app:layout_constraintStart_toStartOf="@id/login_button"
+                    app:layout_constraintTop_toBottomOf="@id/login_button" />
+
+
+                <TextView
+                    android:id="@+id/register_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/register_question"
+                    android:textColor="@color/auth_main_text_color"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@id/register"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/google_sign_in_button"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/underlined_register"
+                    android:textColor="@color/auth_yellow_color"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/register_title"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/register_title" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_30sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_30sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/_30sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/_30sdp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            app:progress_state="@{viewModel.loadingProgress}"
+            tools:visibility="gone">
+
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/loader"
+                style="@style/SpinKitView.Circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@color/auth_yellow_color" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

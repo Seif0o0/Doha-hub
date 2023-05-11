@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="portfolio"
+            type="String" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="code_grow.dohahub.app.adapter.OnPortfolioItemClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onImageClicked(position)}"
+        app:cardCornerRadius="@dimen/_11sdp"
+        app:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="@dimen/_69sdp"
+            android:layout_height="@dimen/_69sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher_background"
+            app:image_url="@{portfolio}" />
+    </androidx.cardview.widget.CardView>
+</layout>

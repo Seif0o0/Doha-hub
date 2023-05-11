@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="category"
+            type="code_grow.dohahub.app.model.Category" />
+
+        <variable
+            name="clickListener"
+            type="code_grow.dohahub.app.adapter.OnCategoryItemClickListener" />
+
+        <variable
+            name="isLastItem"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/home_main_background"
+        android:onClick="@{ () -> clickListener.onCategoryClicked(category)}">
+
+        <TextView
+            android:id="@+id/job_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@{category.name}"
+            android:textColor="@color/home_header_text_color"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Videographer" />
+
+        <RadioButton
+            android:id="@+id/radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:checked="@{category.isClicked}"
+            android:clickable="false"
+            android:focusable="false"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:theme="@style/RadioButtonTheme"
+            app:layout_constraintBottom_toBottomOf="@id/job_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/job_title" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/home_line_color"
+            android:visibility="@{isLastItem}"
+            app:layout_constraintEnd_toEndOf="@id/radio_button"
+            app:layout_constraintStart_toStartOf="@id/job_title"
+            app:layout_constraintTop_toBottomOf="@id/job_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

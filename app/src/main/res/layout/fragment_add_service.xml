@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="code_grow.dohahub.app.view_model.AddServiceViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/services_main_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/ic_back_navigator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/add_service_header"
+                android:textColor="@color/services_header_text_color"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintBottom_toBottomOf="@id/back_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/back_button" />
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintBottom_toTopOf="@id/submit_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/back_button">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/category_exposed_dropdown_menu"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_background"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:endIconDrawable="@drawable/selector_drop_down"
+                        app:endIconTint="@color/drop_down_arrow_color"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autocomplete_category"
+                            android:layout_width="match_parent"
+                            android:popupBackground="@color/white"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/service_category_hint"
+                            android:inputType="none"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.categoryLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/services_title_text_color"
+                            android:textColorHint="@color/services_title_text_color"
+                            android:textSize="@dimen/_11ssp"
+                            app:error_message="@{viewModel.categoryErrorLiveData}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/product_title_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/category_exposed_dropdown_menu">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/product_title_edittext"
+                            android:layout_width="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/service_title_hint"
+                            android:inputType="text"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.titleLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/services_title_text_color"
+                            android:textColorHint="@color/services_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.titleErrorLiveData}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/item_price_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/product_title_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/item_price_edittext"
+                            android:layout_width="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/service_price_hint"
+                            android:inputType="numberDecimal"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.priceLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/services_title_text_color"
+                            android:textColorHint="@color/services_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.priceErrorLiveData}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/service_details_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/item_price_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/service_details_edittext"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/service_details_hint"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.detailsLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/services_title_text_color"
+                            android:textColorHint="@color/services_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.detailsErrorLiveData}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/start_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/end_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_15sdp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="@dimen/_192sdp"
+                android:text="@string/submit_service"
+                android:textAllCaps="false"
+                android:textColor="@color/auth_main_background"
+                android:textSize="@dimen/_11ssp"
+                android:theme="@style/Theme.MaterialComponents"
+                app:backgroundTint="@color/auth_yellow_color"
+                app:cornerRadius="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scroll_view" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/error_view"
+            layout="@layout/error_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resource="@{viewModel.categoriesResponse}" />
+
+        <include
+            android:id="@+id/loading_view"
+            layout="@layout/loading_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resource="@{viewModel.categoriesResponse}" />
+
+        <include
+            android:id="@+id/transparent_loading_view"
+            layout="@layout/transparent_loading_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resource="@{viewModel.addServiceResponse}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

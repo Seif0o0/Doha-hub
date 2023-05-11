@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="order"
+            type="code_grow.dohahub.app.model.OrderResponse" />
+
+        <variable
+            name="viewModel"
+            type="code_grow.dohahub.app.view_model.ClientOrderDetailsViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/orders_main_background">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/ic_back_navigator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="@string/order_details_header"
+                android:textColor="@color/orders_header_text_color"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintBottom_toBottomOf="@id/back_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/back_button" />
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintBottom_toTopOf="@id/submit_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/back_button">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:background="@drawable/edittext_background"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_picture_fake_line"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/top_guideline" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/profile_picture"
+                        android:layout_width="@dimen/_46sdp"
+                        android:layout_height="@dimen/_46sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/top_guideline"
+                        app:riv_corner_radius="@dimen/_500sdp"
+                        app:rounded_image_url="@{order.providerImage}" />
+
+                    <View
+                        android:id="@+id/profile_picture_fake_line"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        app:layout_constraintEnd_toEndOf="@id/profile_picture"
+                        app:layout_constraintStart_toStartOf="@id/profile_picture"
+                        app:layout_constraintTop_toBottomOf="@id/profile_picture" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:text="@{order.providerName}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/orders_header_text_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toTopOf="@id/job_title"
+                        app:layout_constraintEnd_toStartOf="@id/price"
+                        app:layout_constraintStart_toEndOf="@id/profile_picture"
+                        app:layout_constraintTop_toTopOf="@id/profile_picture"
+                        tools:text="order name" />
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="end"
+                        android:maxLength="15"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/orders_yellow_color"
+                        android:textSize="@dimen/_9ssp"
+                        app:formatted_price="@{order.orderDetails.price}"
+                        app:layout_constrainedWidth="true"
+                        app:layout_constraintBottom_toBottomOf="@id/name"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/name"
+                        app:layout_constraintTop_toTopOf="@id/name"
+                        tools:text="15005464600 SAR" />
+
+
+                    <TextView
+                        android:id="@+id/job_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:text="@{order.categoryName}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/orders_subtitle_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_picture"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/profile_picture"
+                        app:layout_constraintTop_toBottomOf="@id/name"
+                        tools:text="Photographer" />
+
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/order_case"
+                        android:textColor="@color/orders_subtitle_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/status_value"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline" />
+
+                    <TextView
+                        android:id="@+id/status_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/order_status_background"
+                        android:paddingStart="@dimen/_15sdp"
+                        android:paddingTop="@dimen/_4sdp"
+                        android:paddingEnd="@dimen/_15sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:textColor="@color/orders_header_text_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:client_order_status="@{order.orderDetails.status}"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toEndOf="@id/status"
+                        app:layout_constraintTop_toBottomOf="@id/profile_picture_fake_line"
+                        tools:text="Finished" />
+
+                    <View
+                        android:id="@+id/first_line"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/orders_items_background_color"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/status_value" />
+
+                    <TextView
+                        android:id="@+id/service_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/package_name"
+                        android:textColor="@color/orders_subtitle_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/service_name_value"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline" />
+
+                    <TextView
+                        android:id="@+id/service_name_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="end"
+                        android:text="@{order.serviceName}"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/orders_header_text_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/service_name"
+                        app:layout_constraintTop_toBottomOf="@id/first_line"
+                        tools:text="Package name" />
+
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/date"
+                        android:textColor="@color/orders_subtitle_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/date_value"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline" />
+
+                    <TextView
+                        android:id="@+id/date_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="end"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/orders_header_text_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:formatted_date="@{order.orderDetails.date}"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/date"
+                        app:layout_constraintTop_toBottomOf="@id/service_name_value"
+                        tools:text="14/1/2022" />
+
+                    <View
+                        android:id="@+id/line"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/orders_items_background_color"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/date_value" />
+
+                    <TextView
+                        android:id="@+id/subtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/subtotal"
+                        android:textColor="@color/orders_subtitle_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/subtotal_value"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline" />
+
+                    <TextView
+                        android:id="@+id/subtotal_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="end"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/orders_header_text_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:formatted_price="@{order.orderDetails.price}"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/subtotal"
+                        app:layout_constraintTop_toBottomOf="@id/line"
+                        tools:text="150 SAR" />
+
+                    <TextView
+                        android:id="@+id/commission"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/commission"
+                        android:textColor="@color/orders_subtitle_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/commission_value"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline" />
+
+                    <TextView
+                        android:id="@+id/commission_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="end"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/orders_header_text_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:formatted_price="@{0.0}"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/commission"
+                        app:layout_constraintTop_toBottomOf="@id/subtotal_value"
+                        tools:text="150 SAR" />
+
+
+                    <View
+                        android:id="@+id/dashed_line"
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/dashed_line"
+                        android:layerType="software"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/commission_value" />
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/total"
+                        android:textColor="@color/orders_subtitle_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/total_value"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline" />
+
+                    <TextView
+                        android:id="@+id/total_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="end"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/orders_yellow_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:formatted_price="@{order.orderDetails.price+0.0}"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/total"
+                        app:layout_constraintTop_toBottomOf="@id/dashed_line"
+                        tools:text="150 SAR" />
+
+                    <ImageView
+                        android:id="@+id/instagram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_31sdp"
+                        android:src="@drawable/ic_order_instagram"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/total_value"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <ImageView
+                        android:id="@+id/facebook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:src="@drawable/ic_order_facebook"
+                        app:layout_constraintBottom_toBottomOf="@id/instagram"
+                        app:layout_constraintStart_toEndOf="@id/instagram"
+                        app:layout_constraintTop_toTopOf="@id/instagram" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/send_message_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="instagram,facebook,send_message,send_message_background,send_message_icon"
+                        app:order_status="@{order.orderDetails.status}" />
+
+                    <View
+                        android:id="@+id/send_message_background"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/view_background"
+                        app:layout_constraintBottom_toBottomOf="@id/instagram"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toStartOf="@id/send_message_fake_line"
+                        app:layout_constraintTop_toTopOf="@id/instagram" />
+
+                    <ImageView
+                        android:id="@+id/send_message_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_order_send_message"
+                        app:layout_constraintBottom_toBottomOf="@id/send_message"
+                        app:layout_constraintEnd_toStartOf="@id/send_message"
+                        app:layout_constraintTop_toTopOf="@id/send_message" />
+
+                    <View
+                        android:id="@+id/send_message_fake_line"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/send_message_icon"
+                        app:layout_constraintEnd_toStartOf="@id/send_message_icon"
+                        app:layout_constraintTop_toTopOf="@id/send_message_icon" />
+
+                    <TextView
+                        android:id="@+id/send_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:text="@string/send_message"
+                        android:textColor="@color/orders_subtitle_text_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/instagram"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintTop_toTopOf="@id/instagram" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/feedback_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="order_feedback,feedback_layout"
+                        app:order_status_feedback="@{order.orderDetails.status}"
+                        tools:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/order_feedback"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_46sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="start"
+                        android:text="@string/order_feedback"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/orders_title_text_color"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/total_value" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/feedback_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:background="@drawable/edittext_background"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+                        app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                        app:layout_constraintStart_toEndOf="@id/start_guideline"
+                        app:layout_constraintTop_toBottomOf="@id/order_feedback">
+
+                        <!--
+                        android:text="@={viewModel.detailsLiveData}"
+                        app:error_message="@{viewModel.detailsErrorLiveData}"
+                        -->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/feedback_edittext"
+                            android:layout_width="match_parent"
+                            android:textCursorDrawable="@drawable/cursor_drawable"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:hint="@string/feedback_hint"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@={viewModel.feedbackLiveData}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/orders_header_text_color"
+                            android:textColorHint="@color/market_hint_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:error_message="@{viewModel.feedbackErrorLiveData}"
+                            tools:text="a;lal;sfk ;alk lakjgla;ksjgvlaskjfavwklvjsalkgj ladskfj alkjvlakvgdjlaskj lakAfjvaskljvlkasjh kalgjlkvadjsgklhjg kvalfjclakjf laskhj skldh" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/start_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/top_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_begin="@dimen/_11sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/bottom_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_end="@dimen/_15sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/end_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_15sdp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="@dimen/_192sdp"
+                android:text="@string/accept_order"
+                android:textAllCaps="false"
+                android:textColor="@color/orders_main_background"
+                android:textSize="@dimen/_11ssp"
+                android:theme="@style/Theme.MaterialComponents"
+                app:backgroundTint="@color/orders_yellow_color"
+                app:client_order_status="@{order.orderDetails.status}"
+                app:cornerRadius="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scroll_view" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/loading_view"
+            layout="@layout/transparent_loading_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_60sdp"
+            app:resource="@{viewModel.progressState}"
+            tools:visibility="gone" />
+    </FrameLayout>
+</layout>

@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.DohaHub" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/auth_main_background</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/auth_main_background</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- DialogFragment style -->
+    <style name="Theme.Material.Light.Dialog.NoMinWidth" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:windowMinWidthMinor">0dp</item>
+        <item name="android:windowMinWidthMajor">0dp</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+    </style>
+
+    <!-- RadioButton style -->
+    <style name="RadioButtonTheme" parent="Theme.AppCompat.DayNight">
+        <item name="colorControlNormal">@color/home_subtitle_text_color</item>
+        <item name="colorControlActivated">@color/home_yellow_color</item>
+    </style>
+
+</resources>

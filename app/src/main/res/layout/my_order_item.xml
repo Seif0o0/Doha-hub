@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="order"
+            type="code_grow.dohahub.app.model.OrderResponse" />
+
+        <variable
+            name="clickListener"
+            type="code_grow.dohahub.app.adapter.OnMyOrderItemClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onOrderItemClicked(order)}"
+        app:cardBackgroundColor="@color/orders_items_background_color"
+        app:cardCornerRadius="@dimen/_11sdp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="start"
+                android:maxLines="1"
+                android:text="@{order.providerName}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/orders_title_text_color"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                app:layout_constraintStart_toEndOf="@+id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/top_guideline"
+                tools:text="username" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/photo"
+                android:layout_width="@dimen/_109sdp"
+                android:layout_height="@dimen/_84sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                app:layout_constraintStart_toEndOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/username"
+                app:riv_corner_radius="@dimen/_11sdp"
+                app:rounded_image_url="@{order.providerImage}"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/job_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@{order.categoryName}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/orders_title_text_color"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintEnd_toStartOf="@id/salary"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/photo"
+                tools:text="Videographer" />
+
+            <TextView
+                android:id="@+id/salary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="end"
+                android:maxLines="2"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/orders_yellow_color"
+                android:textSize="@dimen/_7ssp"
+                app:formatted_price="@{order.orderDetails.price}"
+                app:layout_constraintBaseline_toBaselineOf="@id/job_title"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                app:layout_constraintHorizontal_weight="0.55"
+                app:layout_constraintStart_toEndOf="@id/job_title"
+                tools:text="2000.0 SAR" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/job_title_price_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="job_title,salary" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="start"
+                android:textAlignment="viewStart"
+                android:textColor="@color/orders_subtitle_text_color"
+                android:textSize="@dimen/_8ssp"
+                app:formatted_date="@{order.orderDetails.date}"
+                app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                app:layout_constraintStart_toEndOf="@id/start_guideline"
+                app:layout_constraintTop_toBottomOf="@id/job_title_price_barrier"
+                tools:text="10/01/2022" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/_11sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottom_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/_11sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

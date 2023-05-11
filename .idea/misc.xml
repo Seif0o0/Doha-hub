@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable-v24/error_dialog_dismiss_background.xml" value="0.11851851851851852" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13229166666666667" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/auth_edittext_background.xml" value="0.2611111111111111" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/auth_user_type_option_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/auth_user_type_options_background.xml" value="0.13229166666666667" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/cursor_drawable.xml" value="0.1824074074074074" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/dashed_line.xml" value="0.6" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/dialog_background.xml" value="0.13518518518518519" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/edittext_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/home_search_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_articles.xml" value="0.142" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_auth_header.xml" value="0.13229166666666667" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_back_navigator.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_group_17604.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_hide_password.xml" value="0.13229166666666667" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_home.xml" value="0.142" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_home_filter.xml" value="0.127" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_home_search.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13229166666666667" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_logo.xml" value="0.13229166666666667" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_my_orders.xml" value="0.142" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_order_facebook.xml" value="0.13" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_splash_arrow.xml" value="0.13229166666666667" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/ic_up_arrow.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/market_category_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/offer_details_dialog_dismiss_background.xml" value="0.1" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/order_status_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/product_contacts_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/radio_button_color.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/search_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/selected_product_category_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/selector_drop_down.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/side_menu_items_background.xml" value="0.28229166666666666" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/upload_photo_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/drawable/view_background.xml" value="0.2703125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/activity_auth.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/article_item.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/campaign_offer_item.xml" value="0.1" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/category_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/change_password_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/client_order_item.xml" value="0.536" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/comment_item.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/confirm_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/drop_down_item.xml" value="0.1" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/dynamic_providers_view.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/error_dialog_layout.xml" value="0.2" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/error_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/error_uploading_image_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/filter_dialog_item.xml" value="0.4895238095238095" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/filter_dialog_layout.xml" value="0.1" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_add_article.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_add_campaign.xml" value="0.253125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_add_product.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_add_service.xml" value="0.32407407407407407" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_article_details.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_articles.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_campaign_details.xml" value="0.253125" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_campaign_offers.xml" value="0.1" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_campaigns.xml" value="0.18984375" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_change_forget_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_chat.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_checkout.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_client_order_details.xml" value="0.4742468415937804" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_comments.xml" value="0.2" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_contact_us.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_dialog_edit_service.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_edit_article.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_edit_campaign.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_edit_product.xml" value="0.26614583333333336" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_forget_password.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_hub_market.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_image_portfolio_viewer.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_login.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_market_hub.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_my_articles.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_my_order_details.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_my_orders.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_my_products.xml" value="0.26614583333333336" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_my_services.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_order_details.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_orders.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_product_details.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_provider_details.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_register.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_send_offer.xml" value="0.2" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_services.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_side_menu.xml" value="0.3134232498394348" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/fragment_splash_screen.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/grid_provider_item.xml" value="0.6" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/loading_view.xml" value="0.1" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/message_item.xml" value="0.1" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/my_campaign_item.xml" value="0.5970149253731343" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/my_order_item.xml" value="0.72" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/my_service_item.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/offer_details_dialog_layout.xml" value="0.176" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/package_item.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/portfolio_item.xml" value="0.6" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/product_category_item.xml" value="1.0" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/product_item.xml" value="0.5938566552901023" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/products_category_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/provider_item.xml" value="0.6" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/provider_service_item.xml" value="0.536" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/receiver_message_item.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/sender_message_item.xml" value="0.4" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/success_checkout_dialog_layout.xml" value="0.176" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/success_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/transparent_loading_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/layout/user_item.xml" value="0.2" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14739583333333334" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14739583333333334" />
+        <entry key="..\:/work projects/code-grow/DohaHub/app/src/main/res/mipmap-anydpi-v26/ic_launcherc.xml" value="0.14739583333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

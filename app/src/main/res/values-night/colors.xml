@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#2B2B2B</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="error_dialog_message_color">#FF0000</color>
+    <color name="error_dialog_dismiss_text_color">#FFF</color>
+    <color name="error_dialog_retry_dismiss_text_color">#21252E</color>
+    <color name="error_dialog_dismiss_text_background_color">#FF0000</color>
+    <color name="success_dialog_ok_text_color">#21252E</color>
+    <color name="error_dialog_retry_text_background_color">#FFC809</color>
+    <color name="success_dialog_button_background">#FFC809</color>
+    <color name="loader_color">#FFC809</color>
+    <color name="cursor_color">#FFC809</color>
+    <color name="empty_list_text_color">#747474</color>
+    <color name="error_layout_background_color">#21252E</color>
+    <color name="loading_layout_background_color">#21252E</color>
+    <color name="error_layout_retry_text_color">#747474</color>
+    <color name="drop_down_arrow_color">#989898</color>
+    <color name="dropdown_item_text_color">#000000</color>
+
+    <!-- Auth Activity -->
+    <color name="auth_main_background">#21252E</color>
+    <color name="auth_main_text_color">#FFFFFF</color>
+    <color name="auth_hint_text_color">#8A8A8A</color>
+    <color name="auth_yellow_color">#FFC809</color>
+    <color name="auth_title_text_color">#F3F4F4</color>
+    <color name="auth_edittext_background_color">#323741</color>
+    <color name="auth_subtitle_text_color">#989898</color>
+    <color name="auth_border_color">#495263</color>
+
+    <!-- Home -->
+    <color name="home_main_background">#21252E</color>
+    <color name="home_header_text_color">#F3F4F4</color>
+    <color name="home_title_text_color">#FFFFFF</color>
+    <color name="home_line_color">#14FFFFFF</color>
+    <color name="home_subtitle_text_color">#989898</color>
+    <color name="home_yellow_color">#FFC809</color>
+    <color name="home_items_background_color">#323741</color>
+    <color name="home_hint_text_color">#8A8A8A</color>
+
+    <!-- sideMenu -->
+    <color name="side_menu_main_background">#21252E</color>
+    <color name="side_menu_title_text_color">#989898</color>
+    <color name="side_menu_subtitle_text_color">#F3F4F4</color>
+    <color name="side_menu_line_color">#323741</color>
+    <color name="side_menu_item_background_color">#F3F4F4</color><!--#323741-->
+    <color name="side_menu_icons">#FFFFFF</color>
+    <color name="side_menu_username_color">#F3F4F4</color>
+
+    <!-- HubMarket -->
+    <color name="market_main_background">#21252E</color>
+    <color name="market_items_background">#323741</color>
+    <color name="market_clicked_items_background">#FFC809</color>
+    <color name="market_header_color">#F3F4F4</color>
+    <color name="market_title_color">#FFF</color>
+    <color name="market_line_color">#FFF</color>
+    <color name="market_category_text_color">#989898</color>
+    <color name="market_clicked_category_text_color">#21252E</color>
+    <color name="market_upload_photo_background_border">#14FFFFFF</color>
+    <color name="market_hint_text_color">#8A8A8A</color>
+    <color name="market_delete_button_background">#FF7575</color>
+
+    <!-- Articles -->
+    <color name="articles_main_background">#21252E</color>
+    <color name="articles_items_background">#323741</color>
+    <color name="articles_clicked_items_background">#FFC809</color>
+    <color name="articles_header_color">#F3F4F4</color>
+    <color name="articles_title_color">#FFF</color>
+    <color name="articles_line_color">#FFF</color>
+    <color name="articles_body_text_color">#989898</color>
+    <color name="articles_clicked_category_text_color">#21252E</color>
+    <color name="articles_upload_photo_background_border">#14FFFFFF</color>
+    <color name="articles_hint_text_color">#8A8A8A</color>
+    <color name="articles_delete_button_background">#FF7575</color>
+
+    <!-- Orders -->
+    <color name="orders_main_background">#21252E</color>
+    <color name="orders_header_text_color">#F3F4F4</color>
+    <color name="orders_title_text_color">#FFFFFF</color>
+    <color name="orders_line_color">#14FFFFFF</color>
+    <color name="orders_subtitle_text_color">#989898</color>
+    <color name="orders_yellow_color">#FFC809</color>
+    <color name="orders_items_background_color">#323741</color>
+    <color name="orders_hint_text_color">#8A8A8A</color>
+    <color name="orders_delete_button_background">#FF7575</color>
+    <color name="orders_status_background_color">#1AFFC809</color>
+    <color name="orders_sender_message_color">#FFFFFF</color>
+    <color name="orders_receiver_message_color">#989898</color>
+    <!-- Services -->
+    <color name="services_main_background">#21252E</color>
+    <color name="services_header_text_color">#F3F4F4</color>
+    <color name="services_title_text_color">#FFFFFF</color>
+    <color name="services_line_color">#14FFFFFF</color>
+    <color name="services_subtitle_text_color">#989898</color>
+    <color name="services_yellow_color">#FFC809</color>
+    <color name="services_items_background_color">#323741</color>
+    <color name="services_hint_text_color">#8A8A8A</color>
+    <color name="services_delete_button_background">#FF7575</color>
+
+    <!-- Campaigns -->
+    <color name="campaigns_main_background">#21252E</color>
+    <color name="campaigns_header_text_color">#F3F4F4</color>
+    <color name="campaigns_title_text_color">#FFFFFF</color>
+    <color name="campaigns_line_color">#14FFFFFF</color>
+    <color name="campaigns_subtitle_text_color">#989898</color>
+    <color name="campaigns_yellow_color">#FFC809</color>
+    <color name="campaigns_items_background_color">#323741</color>
+    <color name="campaigns_hint_text_color">#8A8A8A</color>
+    <color name="campaigns_delete_button_background">#FF7575</color>
+    <color name="campaigns_status_background_color">#1AFFC809</color>
+    <color name="campaigns_sender_message_color">#FFFFFF</color>
+    <color name="campaigns_receiver_message_color">#989898</color>
+
+
+
+</resources>

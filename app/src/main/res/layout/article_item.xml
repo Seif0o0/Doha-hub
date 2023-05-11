@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="code_grow.dohahub.app.model.Article" />
+
+        <variable
+            name="clickListener"
+            type="code_grow.dohahub.app.adapter.OnArticleItemClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@color/articles_main_background"
+        android:onClick="@{()-> clickListener.onArticleClicked(article)}">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/photo"
+            android:layout_width="@dimen/_125sdp"
+            android:layout_height="@dimen/_130sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/_11sdp"
+            app:rounded_image_url="@{article.photo}"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/quicksand_medium"
+            android:gravity="start"
+            android:maxLines="2"
+            android:text="@{article.title}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/articles_body_text_color"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photo"
+            tools:text="hello from the body of the article and body body body body" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

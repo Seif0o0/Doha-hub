@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="code_grow.dohahub.app.model.Product" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/market_main_background">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:src="@drawable/ic_back_navigator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/product_details_header"
+            android:textColor="@color/market_header_color"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintBottom_toBottomOf="@id/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/back_button" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_button">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/photo"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_215sdp"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_corner_radius="@dimen/_11sdp"
+                    app:rounded_image_url="@{product.productPhoto}"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="Camera"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/market_header_color"
+                    android:textSize="@dimen/_17ssp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@id/price"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/photo"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="@{product.name}" />
+
+
+                <View
+                    android:id="@+id/price_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/edittext_background"
+                    app:layout_constraintBottom_toBottomOf="@id/price"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/price"
+                    app:layout_constraintTop_toTopOf="@id/price" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:maxLength="13"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/market_clicked_items_background"
+                    app:formatted_price="@{product.price}"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toBottomOf="@id/name"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintHorizontal_weight="0.5"
+                    app:layout_constraintStart_toEndOf="@id/name"
+                    app:layout_constraintTop_toTopOf="@id/name"
+                    tools:text="150000 SAR" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/profile_picture"
+                    android:layout_width="@dimen/_19sdp"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/name"
+                    app:riv_corner_radius="@dimen/_500sdp"
+                    app:rounded_image_url="@{product.userPicture}"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="@{product.username}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/market_header_color"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_picture"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/profile_picture"
+                    app:layout_constraintTop_toTopOf="@id/profile_picture"
+                    tools:text="seifoo" />
+
+                <View
+                    android:id="@+id/contacts_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/product_contacts_background"
+                    app:layout_constraintBottom_toBottomOf="@id/contacts_fake_line"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/profile_picture" />
+
+                <ImageView
+                    android:id="@+id/phone_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    android:src="@drawable/ic_product_phone"
+                    app:layout_constraintEnd_toEndOf="@id/phone"
+                    app:layout_constraintStart_toStartOf="@id/phone"
+                    app:layout_constraintTop_toTopOf="@id/contacts_background" />
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/product_phone_title"
+                    android:textColor="@color/market_category_text_color"
+                    android:textSize="@dimen/_9sdp"
+                    app:layout_constraintEnd_toStartOf="@id/first_vertical_line"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/phone_icon" />
+
+                <View
+                    android:id="@+id/phone_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/contacts_background"
+                    app:layout_constraintEnd_toStartOf="@id/first_vertical_line"
+                    app:layout_constraintStart_toStartOf="@id/contacts_background"
+                    app:layout_constraintTop_toTopOf="@id/contacts_background" />
+
+                <View
+                    android:id="@+id/first_vertical_line"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="0dp"
+                    android:background="@color/market_line_color"
+                    app:layout_constraintBottom_toBottomOf="@id/contacts_background"
+                    app:layout_constraintEnd_toStartOf="@id/chat"
+                    app:layout_constraintStart_toEndOf="@id/phone"
+                    app:layout_constraintTop_toTopOf="@id/contacts_background" />
+
+                <ImageView
+                    android:id="@+id/chat_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_product_chat"
+                    app:layout_constraintBottom_toBottomOf="@id/phone_icon"
+                    app:layout_constraintEnd_toEndOf="@id/chat"
+                    app:layout_constraintStart_toStartOf="@+id/chat"
+                    app:layout_constraintTop_toTopOf="@id/phone_icon" />
+
+                <TextView
+                    android:id="@+id/chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/product_chat_title"
+                    android:textColor="@color/market_category_text_color"
+                    android:textSize="@dimen/_9sdp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/phone"
+                    app:layout_constraintEnd_toStartOf="@id/second_vertical_line"
+                    app:layout_constraintStart_toEndOf="@id/first_vertical_line" />
+
+                <View
+                    android:id="@+id/chat_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/contacts_background"
+                    app:layout_constraintEnd_toStartOf="@id/second_vertical_line"
+                    app:layout_constraintStart_toEndOf="@id/first_vertical_line"
+                    app:layout_constraintTop_toTopOf="@id/contacts_background" />
+
+                <View
+                    android:id="@+id/second_vertical_line"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="0dp"
+                    android:background="@color/market_line_color"
+                    app:layout_constraintBottom_toBottomOf="@id/contacts_background"
+                    app:layout_constraintEnd_toStartOf="@id/location"
+                    app:layout_constraintStart_toEndOf="@id/chat"
+                    app:layout_constraintTop_toTopOf="@id/contacts_background" />
+
+                <ImageView
+                    android:id="@+id/location_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_product_location"
+                    app:layout_constraintBottom_toBottomOf="@id/phone_icon"
+                    app:layout_constraintEnd_toEndOf="@id/location"
+                    app:layout_constraintStart_toStartOf="@+id/location"
+                    app:layout_constraintTop_toTopOf="@id/phone_icon" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/product_location_title"
+                    android:textColor="@color/market_category_text_color"
+                    android:textSize="@dimen/_9sdp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/phone"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/second_vertical_line" />
+
+                <View
+                    android:id="@+id/address_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/contacts_background"
+                    app:layout_constraintEnd_toEndOf="@id/contacts_background"
+                    app:layout_constraintStart_toEndOf="@id/second_vertical_line"
+                    app:layout_constraintTop_toTopOf="@id/contacts_background" />
+
+                <View
+                    android:id="@+id/contacts_fake_line"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_11sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/phone" />
+
+
+                <TextView
+                    android:id="@+id/details_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/details_title"
+                    android:textColor="@color/market_header_color"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/contacts_background" />
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="start"
+                    android:text="@{product.details}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/market_category_text_color"
+                    android:textSize="@dimen/_9sdp"
+                    app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@id/end_guideline"
+                    app:layout_constraintStart_toEndOf="@id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/details_title"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Detaaaaaaaaaaaaaaaails" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/_15sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_15sdp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

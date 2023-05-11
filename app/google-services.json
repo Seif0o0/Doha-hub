@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "402050957587",
+    "project_id": "doha-hub",
+    "storage_bucket": "doha-hub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402050957587:android:3dfe891dfaa37fea3d1ae6",
+        "android_client_info": {
+          "package_name": "code_grow.dohahub.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402050957587-l39ookhtvnso21gpd8mmk1c4u64p0gei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "code_grow.dohahub.app",
+            "certificate_hash": "9961eb624810c73d82b9bbfa636fd6b403b0b4c3"
+          }
+        },
+        {
+          "client_id": "402050957587-6a0ga3s37s4anglg4smem3j6grvau0g9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGaGVbaWQFY9HrLtRun0rs8TyNUz8ts-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402050957587-6a0ga3s37s4anglg4smem3j6grvau0g9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "402050957587-ngfkbaj4jpmvh5i048vcq9hetnv8o740.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "codegrow.dohahub"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

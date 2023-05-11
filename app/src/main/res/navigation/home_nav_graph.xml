@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="code_grow.dohahub.app.fragment.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_sideMenuFragment"
+            app:destination="@id/sideMenuFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_providerDetailsFragment"
+            app:destination="@id/providerDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_providersFragment"
+            app:destination="@id/providersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sideMenuFragment"
+        android:name="code_grow.dohahub.app.fragment.SideMenuFragment"
+        android:label="SideMenuFragment" >
+        <action
+            android:id="@+id/action_sideMenuFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_marketHubFragment"
+            app:destination="@id/hubMarketFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_articlesFragment"
+            app:destination="@id/articlesFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_myOrdersFragment"
+            app:destination="@id/myOrdersFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_myServicesFragment"
+            app:destination="@id/myServicesFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_clientOrdersFragment"
+            app:destination="@id/clientOrdersFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_myArticlesFragment"
+            app:destination="@id/myArticlesFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_myProductsFragment"
+            app:destination="@id/myProductsFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_clientCampaignsFragment"
+            app:destination="@id/clientCampaignsFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_myCampaignsFragment"
+            app:destination="@id/myCampaignsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="code_grow.dohahub.app.fragment.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/hubMarketFragment"
+        android:name="code_grow.dohahub.app.fragment.HubMarketFragment"
+        android:label="HubMarketFragment">
+        <action
+            android:id="@+id/action_marketHubFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_hubMarketFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="code_grow.dohahub.app.fragment.AddProductFragment"
+        android:label="AddProductFragment" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="code_grow.dohahub.app.fragment.ProductDetailsFragment"
+        android:label="ProductDetailsFragment" >
+        <argument
+            android:name="productDetails"
+            app:argType="code_grow.dohahub.app.model.Product" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/providerDetailsFragment"
+        android:name="code_grow.dohahub.app.fragment.ProviderDetailsFragment"
+        android:label="ProviderDetailsFragment" >
+        <argument
+            android:name="providerId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_providerDetailsFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+        <action
+            android:id="@+id/action_providerDetailsFragment_to_imagePortfolioViewerFragment"
+            app:destination="@id/imagePortfolioViewerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/providersFragment"
+        android:name="code_grow.dohahub.app.fragment.ProvidersFragment"
+        android:label="ProvidersFragment" >
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+        <argument
+            android:name="query"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_providersFragment_to_providerDetailsFragment"
+            app:destination="@id/providerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="code_grow.dohahub.app.fragment.CheckoutFragment"
+        android:label="CheckoutFragment" >
+        <argument
+            android:name="provider"
+            app:argType="code_grow.dohahub.app.model.ProviderDetails" />
+        <action
+            android:id="@+id/action_checkoutFragment_to_myOrdersFragment"
+            app:destination="@id/myOrdersFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articlesFragment"
+        android:name="code_grow.dohahub.app.fragment.ArticlesFragment"
+        android:label="ArticlesFragment" >
+        <action
+            android:id="@+id/action_articlesFragment_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+        <action
+            android:id="@+id/action_articlesFragment_to_addArticleFragment"
+            app:destination="@id/addArticleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailsFragment"
+        android:name="code_grow.dohahub.app.fragment.ArticleDetailsFragment"
+        android:label="ArticleDetailsFragment" >
+        <argument
+            android:name="article"
+            app:argType="code_grow.dohahub.app.model.Article" />
+        <action
+            android:id="@+id/action_articleDetailsFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addArticleFragment"
+        android:name="code_grow.dohahub.app.fragment.AddArticleFragment"
+        android:label="AddArticleFragment" />
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="code_grow.dohahub.app.fragment.MyOrdersFragment"
+        android:label="MyOrdersFragment" >
+        <action
+            android:id="@+id/action_myOrdersFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="code_grow.dohahub.app.fragment.MyOrderDetailsFragment"
+        android:label="OrderDetailsFragment" >
+        <argument
+            android:name="orderDetails"
+            app:argType="code_grow.dohahub.app.model.OrderResponse" />
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myServicesFragment"
+        android:name="code_grow.dohahub.app.fragment.MyServicesFragment"
+        android:label="MyServicesFragment" >
+        <action
+            android:id="@+id/action_myServicesFragment_to_addServiceFragment"
+            app:destination="@id/addServiceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addServiceFragment"
+        android:name="code_grow.dohahub.app.fragment.AddServiceFragment"
+        android:label="AddServiceFragment" />
+    <fragment
+        android:id="@+id/clientOrdersFragment"
+        android:name="code_grow.dohahub.app.fragment.ClientOrdersFragment"
+        android:label="ClientOrdersFragment" >
+        <action
+            android:id="@+id/action_clientOrdersFragment_to_clientOrderDetails"
+            app:destination="@id/clientOrderDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientOrderDetails"
+        android:name="code_grow.dohahub.app.fragment.ClientOrderDetailsFragment"
+        android:label="ClientOrderDetails" >
+        <argument
+            android:name="orderDetails"
+            app:argType="code_grow.dohahub.app.model.OrderResponse" />
+        <action
+            android:id="@+id/action_clientOrderDetails_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagePortfolioViewerFragment"
+        android:name="code_grow.dohahub.app.fragment.ImagePortfolioViewerFragment"
+        android:label="ImagePortfolioViewerFragment" >
+        <argument
+            android:name="portfolio"
+            app:argType="string[]" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/myArticlesFragment"
+        android:name="code_grow.dohahub.app.fragment.MyArticlesFragment"
+        android:label="MyArticlesFragment" >
+        <action
+            android:id="@+id/action_myArticlesFragment_to_addArticleFragment"
+            app:destination="@id/addArticleFragment" />
+        <action
+            android:id="@+id/action_myArticlesFragment_to_editArticleFragment"
+            app:destination="@id/editArticleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editArticleFragment"
+        android:name="code_grow.dohahub.app.fragment.EditArticleFragment"
+        android:label="EditArticleFragment" >
+        <argument
+            android:name="article"
+            app:argType="code_grow.dohahub.app.model.Article" />
+    </fragment>
+    <fragment
+        android:id="@+id/myProductsFragment"
+        android:name="code_grow.dohahub.app.fragment.MyProductsFragment"
+        android:label="MyProductsFragment" >
+        <action
+            android:id="@+id/action_myProductsFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_myProductsFragment_to_editProductFragment"
+            app:destination="@id/editProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProductFragment"
+        android:name="code_grow.dohahub.app.fragment.EditProductFragment"
+        android:label="EditProductFragment" >
+        <argument
+            android:name="productDetails"
+            app:argType="code_grow.dohahub.app.model.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="code_grow.dohahub.app.fragment.ChatFragment"
+        android:label="ChatFragment" >
+        <argument
+            android:name="receiverId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="code_grow.dohahub.app.fragment.CommentsFragment"
+        android:label="CommentsFragment" >
+        <argument
+            android:name="articleId"
+            app:argType="integer" />
+        <argument
+            android:name="comments"
+            app:argType="code_grow.dohahub.app.model.Comment[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientCampaignsFragment"
+        android:name="code_grow.dohahub.app.fragment.ClientCampaignsFragment"
+        android:label="ClientCampaignsFragment" >
+        <action
+            android:id="@+id/action_clientCampaignsFragment_to_addCampaignFragment"
+            app:destination="@id/addCampaignFragment" />
+        <action
+            android:id="@+id/action_clientCampaignsFragment_to_campaignDetailsFragment"
+            app:destination="@id/campaignDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myCampaignsFragment"
+        android:name="code_grow.dohahub.app.fragment.MyCampaignsFragment"
+        android:label="MyCampaignsFragment" >
+        <action
+            android:id="@+id/action_myCampaignsFragment_to_addCampaignFragment"
+            app:destination="@id/addCampaignFragment" />
+        <action
+            android:id="@+id/action_myCampaignsFragment_to_editCampaignFragment"
+            app:destination="@id/editCampaignFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCampaignFragment"
+        android:name="code_grow.dohahub.app.fragment.AddCampaignFragment"
+        android:label="AddCampaignFragment" />
+    <fragment
+        android:id="@+id/editCampaignFragment"
+        android:name="code_grow.dohahub.app.fragment.EditCampaignFragment"
+        android:label="EditCampaignFragment" >
+        <argument
+            android:name="campaignDetails"
+            app:argType="code_grow.dohahub.app.model.Campaign" />
+        <action
+            android:id="@+id/action_editCampaignFragment_to_campaignOffersFragment"
+            app:destination="@id/campaignOffersFragment" />
+        <action
+            android:id="@+id/action_editCampaignFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/campaignDetailsFragment"
+        android:name="code_grow.dohahub.app.fragment.CampaignDetailsFragment"
+        android:label="CampaignDetailsFragment" >
+        <argument
+            android:name="campaignDetails"
+            app:argType="code_grow.dohahub.app.model.Campaign" />
+        <action
+            android:id="@+id/action_campaignDetailsFragment_to_sendOfferFragment"
+            app:destination="@id/sendOfferFragment"
+            app:popUpTo="@id/campaignDetailsFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_campaignDetailsFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendOfferFragment"
+        android:name="code_grow.dohahub.app.fragment.SendOfferFragment"
+        android:label="SendOfferFragment" >
+        <argument
+            android:name="campaign"
+            app:argType="code_grow.dohahub.app.model.Campaign" />
+    </fragment>
+    <fragment
+        android:id="@+id/campaignOffersFragment"
+        android:name="code_grow.dohahub.app.fragment.CampaignOffersFragment"
+        android:label="CampaignOffersFragment" >
+        <argument
+            android:name="campaignId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

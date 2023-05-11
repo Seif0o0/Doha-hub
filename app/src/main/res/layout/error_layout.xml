@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="error"
+            type="String" />
+
+        <variable
+            name="cancelAnimation"
+            type="Boolean" />
+
+        <variable
+            name="resource"
+            type="androidx.lifecycle.LiveData&lt;code_grow.dohahub.app.retrofit.Resource>" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/error_layout_background_color"
+        app:failed_state="@{resource}">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/error_animation"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:cancel_animation="@{cancelAnimation}"
+            app:layout_constraintBottom_toTopOf="@id/error_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:play_animation="@{error}" />
+
+        <TextView
+            android:id="@+id/error_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:fontFamily="@font/quicksand_medium"
+            android:gravity="center"
+            android:text="@{error}"
+            android:textColor="@color/error_dialog_message_color"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintBottom_toTopOf="@id/tap_to_retry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/error_animation"
+            tools:text="No internet connection" />
+
+        <TextView
+            android:id="@+id/tap_to_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/tap_to_retry"
+            android:textColor="@color/error_layout_retry_text_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/error_message" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
